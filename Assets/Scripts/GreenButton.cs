@@ -6,6 +6,7 @@ public class GreenButton : MonoBehaviour{
 
   public bool isOnColor;
   public PlayerSwatchScript finalSwatch;
+  public bool isPlayer2;
 
   void Start(){
 
@@ -13,8 +14,15 @@ public class GreenButton : MonoBehaviour{
 
 
   void Update(){
-    if(isOnColor && Input.GetKey(KeyCode.E) && finalSwatch.player1GValue <= 254){
-      finalSwatch.player1GValue += 1;
+    if(isPlayer2 == false){
+      if(isOnColor && Input.GetKey(KeyCode.E) && finalSwatch.player1GValue <= 254){
+        finalSwatch.player1GValue += 1;
+      }
+    }
+    if(isPlayer2 == true){
+      if(isOnColor && Input.GetKey(KeyCode.Keypad0) && finalSwatch.player1GValue <= 254){
+        finalSwatch.player1GValue += 1;
+      }
     }
   }
 

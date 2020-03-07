@@ -20,6 +20,7 @@ public class ConfirmButton : MonoBehaviour{
   public int difgreen;
   public int difblue;
   public int finalScore;
+  public bool isPlayer2;
 
 /*
   public byte player1RValue;
@@ -70,32 +71,62 @@ public class ConfirmButton : MonoBehaviour{
         minBluePass = 0;
       }
       */
+      if(isPlayer2 == false){
+        if(isOnColor && Input.GetKeyDown(KeyCode.E) && AnalysingAnswers == false){
+          AnalysingAnswers = true;
+          percentageBox.text =  finalScore.ToString() + "%";
+          if(finalScore >= 95){
+            Debug.Log("Super Shoot");
+          }
+          else if(finalScore >= 80){
+            Debug.Log("Shoot");
+          }
 
-      if(isOnColor && Input.GetKeyDown(KeyCode.E) && AnalysingAnswers == false){
-        AnalysingAnswers = true;
-        percentageBox.text =  finalScore.ToString() + "%";
-        if(finalScore >= 80){
-          Debug.Log("Shoot");
+          /*
+          if(finalSwatch.player1RValue >= minRedPass && finalSwatch.player1RValue <= maxRedPass){
+            Debug.Log("Red Pass");
+          }
+          if(finalSwatch.player1GValue >= minGreenPass && finalSwatch.player1GValue <= maxGreenPass){
+            Debug.Log("green Pass");
+          }
+          if(finalSwatch.player1BValue >= minBluePass && finalSwatch.player1BValue <= maxBluePass){
+            Debug.Log("blue Pass");
+          }
+          */
+          else{
+            Debug.Log("fail");
+          }
+          AnalysingAnswers = false;
         }
-        if(finalScore >= 95){
-          Debug.Log("Super Shoot");
-        }
-        /*
-        if(finalSwatch.player1RValue >= minRedPass && finalSwatch.player1RValue <= maxRedPass){
-          Debug.Log("Red Pass");
-        }
-        if(finalSwatch.player1GValue >= minGreenPass && finalSwatch.player1GValue <= maxGreenPass){
-          Debug.Log("green Pass");
-        }
-        if(finalSwatch.player1BValue >= minBluePass && finalSwatch.player1BValue <= maxBluePass){
-          Debug.Log("blue Pass");
-        }
-        else{
-          Debug.Log("fail");
-        }
-        */
+      }
 
-        AnalysingAnswers = false;
+      if(isPlayer2 == true){
+        if(isOnColor && Input.GetKeyDown(KeyCode.Keypad0) && AnalysingAnswers == false){
+          AnalysingAnswers = true;
+          percentageBox.text =  finalScore.ToString() + "%";
+          if(finalScore >= 95){
+            Debug.Log("P2 Super Shoot");
+          }
+          else if(finalScore >= 80){
+            Debug.Log("P2 Shoot");
+          }
+
+          /*
+          if(finalSwatch.player1RValue >= minRedPass && finalSwatch.player1RValue <= maxRedPass){
+            Debug.Log("Red Pass");
+          }
+          if(finalSwatch.player1GValue >= minGreenPass && finalSwatch.player1GValue <= maxGreenPass){
+            Debug.Log("green Pass");
+          }
+          if(finalSwatch.player1BValue >= minBluePass && finalSwatch.player1BValue <= maxBluePass){
+            Debug.Log("blue Pass");
+          }
+          */
+          else{
+            Debug.Log("p2 fail");
+          }
+          AnalysingAnswers = false;
+        }
       }
 
       difred = originalSwatch.rValue - finalSwatch.player1RValue;
@@ -111,7 +142,7 @@ public class ConfirmButton : MonoBehaviour{
         difblue = -difblue;
       }
 
-      finalScore = 100 - ((difred + difgreen + difblue) / 4);
+      finalScore = 100 - ((difred + difgreen + difblue) / 3);
       if(finalScore < 0){
         finalScore = 0;
       }
