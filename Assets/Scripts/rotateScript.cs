@@ -5,7 +5,7 @@ using System;
 
 public class rotateScript : MonoBehaviour {
 
-
+  public Transform TrianglePoint;
    private float second;
    public float currentRotate;
    public bool isPlayer2;
@@ -19,8 +19,7 @@ public class rotateScript : MonoBehaviour {
    }
 
     void FixedUpdate(){
-        currentRotate= transform.eulerAngles.z;
-
+        currentRotate = transform.eulerAngles.z;
         second = second + direction;
 
 
@@ -33,17 +32,12 @@ public class rotateScript : MonoBehaviour {
            direction = 0.5f;
            isMovingUp = true;
          }
-
-        if(currentRotate <= 300f){
-          Debug.Log("switch now");
-          second = second * -1;
-        }
-
+         float triangleAngle = -360 * (second/60);
+         TrianglePoint.localRotation = Quaternion.Euler(0,0, triangleAngle + 50);
       }
 
 
      if(isPlayer2 == false){
-
        if(currentRotate <= 199 && isMovingUp){
          direction = -0.5f;
          isMovingUp = false;
@@ -52,9 +46,8 @@ public class rotateScript : MonoBehaviour {
          direction = 0.5f;
          isMovingUp = true;
        }
-
+       float triangleAngle = -360 * (second/60);
+       TrianglePoint.localRotation = Quaternion.Euler(0,0, triangleAngle - 50);
      }
-
-
    }
 }
