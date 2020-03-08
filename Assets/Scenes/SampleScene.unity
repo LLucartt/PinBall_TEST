@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 531820890}
   - component: {fileID: 531820892}
   - component: {fileID: 531820891}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1548,7 +1548,7 @@ GameObject:
   - component: {fileID: 796745156}
   - component: {fileID: 796745158}
   - component: {fileID: 796745157}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1879,6 +1879,13 @@ MonoBehaviour:
   difblue: 0
   finalScore: 0
   isPlayer2: 1
+  shooter: {fileID: 1414956883}
+  player: {fileID: 2063936186}
+  playerGonnaShoot: 0
+  bulletPrefab: {fileID: 8180117074826000665, guid: cb94e98b83748bb48a3bea75de6f0b64,
+    type: 3}
+  Nozzle: {fileID: 2089459484}
+  NozzleLocation: {x: 0, y: 0}
 --- !u!1 &1032796229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,7 +1897,7 @@ GameObject:
   - component: {fileID: 1032796230}
   - component: {fileID: 1032796232}
   - component: {fileID: 1032796231}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2580,6 +2587,36 @@ MonoBehaviour:
   isOnColor: 0
   finalSwatch: {fileID: 1226957720}
   isPlayer2: 0
+--- !u!1 &1340076049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1340076050}
+  m_Layer: 0
+  m_Name: Nozzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1340076050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340076049}
+  m_LocalRotation: {x: -0, y: -0, z: 0.020744083, w: 0.9997848}
+  m_LocalPosition: {x: -0.01, y: 93.19, z: -1774.2809}
+  m_LocalScale: {x: 45.026894, y: 45.026894, z: 45.02688}
+  m_Children: []
+  m_Father: {fileID: 1414956884}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.377}
 --- !u!1 &1344285945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,7 +2626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1344285946}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerWalls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2641,13 +2678,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414956883}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.5082577, w: 0.8612051}
   m_LocalPosition: {x: 0.03000021, y: 0.02, z: 9.021484}
   m_LocalScale: {x: 0.022208951, y: 0.022208951, z: 0.022208955}
-  m_Children: []
+  m_Children:
+  - {fileID: 1340076050}
   m_Father: {fileID: 2122562022}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 61.096004}
 --- !u!61 &1414956885
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2688,6 +2726,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrianglePoint: {fileID: 1414956884}
   currentRotate: 0
+  isPlayer2: 1
+  isMovingUp: 0
+  direction: 0
 --- !u!212 &1414956887
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2727,7 +2768,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6e13630e919e158418715a4a611aa702, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2858,7 +2899,7 @@ GameObject:
   - component: {fileID: 1474284980}
   - component: {fileID: 1474284982}
   - component: {fileID: 1474284981}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3219,6 +3260,13 @@ MonoBehaviour:
   difblue: 0
   finalScore: 0
   isPlayer2: 0
+  shooter: {fileID: 1662299294}
+  player: {fileID: 2036403838}
+  playerGonnaShoot: 0
+  bulletPrefab: {fileID: 8180117074826000665, guid: cb94e98b83748bb48a3bea75de6f0b64,
+    type: 3}
+  Nozzle: {fileID: 2089459484}
+  NozzleLocation: {x: 0, y: 0}
 --- !u!1 &1662299294
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,6 +3300,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrianglePoint: {fileID: 1662299297}
   currentRotate: 0
+  isPlayer2: 0
+  isMovingUp: 0
+  direction: 0
 --- !u!212 &1662299296
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3291,7 +3342,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6e13630e919e158418715a4a611aa702, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3311,7 +3362,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0.53456265, w: 0.84512883}
   m_LocalPosition: {x: -0.069999695, y: 0.02909889, z: 9.021484}
   m_LocalScale: {x: 0.022208951, y: 0.022208951, z: 0.022208955}
-  m_Children: []
+  m_Children:
+  - {fileID: 2089459485}
   m_Father: {fileID: 219779224}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -64.629005}
@@ -3902,7 +3954,7 @@ GameObject:
   - component: {fileID: 2069787425}
   - component: {fileID: 2069787427}
   - component: {fileID: 2069787426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3998,6 +4050,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2089459484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2089459485}
+  m_Layer: 0
+  m_Name: Nozzle
+  m_TagString: P1Nozzle
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2089459485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089459484}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0013544562, w: 0.9999991}
+  m_LocalPosition: {x: 0.019994399, y: 93.25001, z: -1676.1013}
+  m_LocalScale: {x: 45.02689, y: 45.02689, z: 45.02688}
+  m_Children: []
+  m_Father: {fileID: 1662299297}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.155}
 --- !u!1 &2122562020
 GameObject:
   m_ObjectHideFlags: 0

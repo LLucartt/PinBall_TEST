@@ -21,22 +21,20 @@ public class ConfirmButton : MonoBehaviour{
   public int difblue;
   public int finalScore;
   public bool isPlayer2;
+  public GameObject shooter;
+  public GameObject player;
+  public bool playerGonnaShoot;
+  public GameObject bulletPrefab;
+  public GameObject Nozzle;
+  public Vector2 NozzleLocation;
 
-/*
-  public byte player1RValue;
-  public byte player1GValue;
-  public byte player1BValue;
-
-  public byte rValue;
-  public byte gValue;
-  public byte bValue;
-*/
     void Start(){
 
     }
 
 
     void Update(){
+      NozzleLocation = Nozzle.transform.position;
       /*
       minRedPass = originalSwatch.rValue;
       maxRedPass = originalSwatch.rValue;
@@ -76,10 +74,13 @@ public class ConfirmButton : MonoBehaviour{
           AnalysingAnswers = true;
           percentageBox.text =  finalScore.ToString() + "%";
           if(finalScore >= 95){
-            Debug.Log("Super Shoot");
+            Debug.Log("Super");
           }
-          else if(finalScore >= 80){
-            Debug.Log("Shoot");
+          if(finalScore >= 80){
+            //Debug.Log("Shoot");
+            shooter.SetActive(true);
+            player.SetActive(false);
+            playerGonnaShoot = true;
           }
 
           /*
@@ -95,8 +96,15 @@ public class ConfirmButton : MonoBehaviour{
           */
           else{
             Debug.Log("fail");
+            originalSwatch.RandomiseColour();
+            ResetPlayerSwatch();
           }
           AnalysingAnswers = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Q) && playerGonnaShoot){
+            Debug.Log("Shoot");
+            StartCoroutine(Shoot());
         }
       }
 
@@ -105,10 +113,13 @@ public class ConfirmButton : MonoBehaviour{
           AnalysingAnswers = true;
           percentageBox.text =  finalScore.ToString() + "%";
           if(finalScore >= 95){
-            Debug.Log("P2 Super Shoot");
+            Debug.Log("Super");
           }
-          else if(finalScore >= 80){
-            Debug.Log("P2 Shoot");
+          if(finalScore >= 80){
+            //Debug.Log("Shoot");
+            shooter.SetActive(true);
+            player.SetActive(false);
+            playerGonnaShoot = true;
           }
 
           /*
@@ -123,9 +134,15 @@ public class ConfirmButton : MonoBehaviour{
           }
           */
           else{
-            Debug.Log("p2 fail");
+            Debug.Log("fail");
+            originalSwatch.RandomiseColour();
+            ResetPlayerSwatch();
           }
           AnalysingAnswers = false;
+        }
+        if(Input.GetKeyDown(KeyCode.Keypad1) && playerGonnaShoot){
+            Debug.Log("Shoot");
+            StartCoroutine(Shoot());
         }
       }
 
@@ -153,5 +170,21 @@ public class ConfirmButton : MonoBehaviour{
     }
     void OnTriggerExit2D (Collider2D col){
        isOnColor = false;
+    }
+
+    IEnumerator Shoot(){
+      Instantiate(bulletPrefab, NozzleLocation, Quaternion.identity);
+      playerGonnaShoot = false;
+      originalSwatch.RandomiseColour();
+      ResetPlayerSwatch();
+      player.SetActive(true);
+      yield return new WaitForSeconds(1f);
+      shooter.SetActive(false);
+    }
+
+    public void ResetPlayerSwatch(){
+      finalSwatch.player1RValue = (byte)0;
+      finalSwatch.player1GValue = (byte)0;
+      finalSwatch.player1BValue = (byte)0;
     }
 }
