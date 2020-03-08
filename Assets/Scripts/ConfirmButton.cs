@@ -70,7 +70,7 @@ public class ConfirmButton : MonoBehaviour{
       }
       */
       if(isPlayer2 == false){
-        if(isOnColor && Input.GetKeyDown(KeyCode.E) && AnalysingAnswers == false){
+        if(isOnColor && Input.GetButtonDown("FillColourP1") && AnalysingAnswers == false){
           AnalysingAnswers = true;
           percentageBox.text =  finalScore.ToString() + "%";
           if(finalScore >= 95){
@@ -102,14 +102,14 @@ public class ConfirmButton : MonoBehaviour{
           AnalysingAnswers = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.Q) && playerGonnaShoot){
+        if(Input.GetButtonDown("shootP1") && playerGonnaShoot){
             Debug.Log("Shoot");
             StartCoroutine(Shoot());
         }
       }
 
       if(isPlayer2 == true){
-        if(isOnColor && Input.GetKeyDown(KeyCode.Keypad0) && AnalysingAnswers == false){
+        if(isOnColor && Input.GetButtonDown("FillColourP2") && AnalysingAnswers == false){
           AnalysingAnswers = true;
           percentageBox.text =  finalScore.ToString() + "%";
           if(finalScore >= 95){
@@ -140,7 +140,7 @@ public class ConfirmButton : MonoBehaviour{
           }
           AnalysingAnswers = false;
         }
-        if(Input.GetKeyDown(KeyCode.Keypad1) && playerGonnaShoot){
+        if(Input.GetButtonDown("shootP2") && playerGonnaShoot){
             Debug.Log("Shoot");
             StartCoroutine(Shoot());
         }

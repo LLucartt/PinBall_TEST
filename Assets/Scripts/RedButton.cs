@@ -16,7 +16,7 @@ public class RedButton : MonoBehaviour{
 
     void FixedUpdate(){
       if(isPlayer2 == false){
-        if(isOnColor && Input.GetKey(KeyCode.E) && finalSwatch.player1RValue <= 254){
+        if(isOnColor && Input.GetButton("FillColourP1") && finalSwatch.player1RValue <= 254){
           finalSwatch.player1RValue += 1;
           RedFlare.SetActive(true);
         }
@@ -25,7 +25,7 @@ public class RedButton : MonoBehaviour{
         }
       }
       else if(isPlayer2 == true){
-        if(isOnColor && Input.GetKey(KeyCode.Keypad0) && finalSwatch.player1RValue <= 254){
+        if(isOnColor && Input.GetButton("FillColourP2") && finalSwatch.player1RValue <= 254){
           finalSwatch.player1RValue += 1;
           RedFlare.SetActive(true);
         }

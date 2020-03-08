@@ -16,14 +16,14 @@ public class ClearButton : MonoBehaviour{
 
   void Update(){
     if (isPlayer2 == false){
-      if(isOnColor && Input.GetKeyDown(KeyCode.E)){
+      if(isOnColor && Input.GetButton("FillColourP1")){
         finalSwatch.player1RValue = (byte)0;
         finalSwatch.player1GValue = (byte)0;
         finalSwatch.player1BValue = (byte)0;
       }
     }
     if (isPlayer2 == true){
-      if(isOnColor && Input.GetKeyDown(KeyCode.Keypad0)){
+      if(isOnColor && Input.GetButton("FillColourP2")){
         finalSwatch.player1RValue = (byte)0;
         finalSwatch.player1GValue = (byte)0;
         finalSwatch.player1BValue = (byte)0;

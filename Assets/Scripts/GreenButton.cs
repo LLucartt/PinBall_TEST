@@ -16,7 +16,7 @@ public class GreenButton : MonoBehaviour{
 
   void Update(){
     if(isPlayer2 == false){
-      if(isOnColor && Input.GetKey(KeyCode.E) && finalSwatch.player1GValue <= 254){
+      if(isOnColor && Input.GetButton("FillColourP1") && finalSwatch.player1GValue <= 254){
         finalSwatch.player1GValue += 1;
         GreenFlare.SetActive(true);
       }
@@ -25,7 +25,7 @@ public class GreenButton : MonoBehaviour{
       }
     }
     if(isPlayer2 == true){
-      if(isOnColor && Input.GetKey(KeyCode.Keypad0) && finalSwatch.player1GValue <= 254){
+      if(isOnColor && Input.GetButton("FillColourP2") && finalSwatch.player1GValue <= 254){
         finalSwatch.player1GValue += 1;
         GreenFlare.SetActive(true);
       }

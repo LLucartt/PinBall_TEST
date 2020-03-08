@@ -16,7 +16,7 @@ public class BlueButton : MonoBehaviour{
 
   void Update(){
     if(isPlayer2 == false){
-      if(isOnColor && Input.GetKey(KeyCode.E) && finalSwatch.player1BValue <= 254){
+      if(isOnColor && Input.GetButton("FillColourP1") && finalSwatch.player1BValue <= 254){
         finalSwatch.player1BValue += 1;
         BlueFlare.SetActive(true);
       }
@@ -25,7 +25,7 @@ public class BlueButton : MonoBehaviour{
       }
     }
     if(isPlayer2 == true){
-      if(isOnColor && Input.GetKey(KeyCode.Keypad0) && finalSwatch.player1BValue <= 254){
+      if(isOnColor && Input.GetButton("FillColourP2") && finalSwatch.player1BValue <= 254){
         finalSwatch.player1BValue += 1;
         BlueFlare.SetActive(true);
       }
