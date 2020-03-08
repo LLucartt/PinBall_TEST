@@ -159,7 +159,7 @@ public class ConfirmButton : MonoBehaviour{
         difblue = -difblue;
       }
 
-      finalScore = 100 - ((difred + difgreen + difblue) / 8);
+      finalScore = 100 - ((difred + difgreen + difblue) / 6);
       if(finalScore < 0){
         finalScore = 0;
       }

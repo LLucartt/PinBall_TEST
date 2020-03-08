@@ -9,8 +9,12 @@ public class BulletScript : MonoBehaviour{
     public GameObject Nozzle;
     public bool isPlayer2;
     public float bulletBounceCount;
+    public GameObject HealthBarObject;
+    public HealthBarScript healthBar;
 
     void Start(){
+      HealthBarObject = GameObject.FindWithTag("HealthBar");
+      healthBar = HealthBarObject.GetComponent<HealthBarScript>();
       rb = GetComponent<Rigidbody2D>();
       if(isPlayer2 == false){
         Nozzle = GameObject.FindWithTag("P1Nozzle");
@@ -27,15 +31,28 @@ public class BulletScript : MonoBehaviour{
 
 
     void Update(){
-      if(bulletBounceCount >= 4){
+      if(bulletBounceCount >= 6){
         Destroy(gameObject);
       }
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-      Vector2 inNormal = col.contacts[0].normal;
-      Vector2 newVelocity = Vector2.Reflect(rb.velocity, inNormal);
-      bulletBounceCount += 1;
+      if(col.gameObject.tag == "Creature"){
+        if(isPlayer2 == false){
+          healthBar.health += -1;
+        }
+        if(isPlayer2){
+          healthBar.health += 1;
+        }
+        Destroy(gameObject);
+      }
+
+      else{
+        Vector2 inNormal = col.contacts[0].normal;
+        Vector2 newVelocity = Vector2.Reflect(rb.velocity, inNormal);
+        bulletBounceCount += 1;
+      }
+
     }
 
 }

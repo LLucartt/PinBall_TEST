@@ -7,9 +7,10 @@ public class GreenButton : MonoBehaviour{
   public bool isOnColor;
   public PlayerSwatchScript finalSwatch;
   public bool isPlayer2;
+  public GameObject GreenFlare;
 
   void Start(){
-
+    GreenFlare.SetActive(false);
   }
 
 
@@ -17,11 +18,19 @@ public class GreenButton : MonoBehaviour{
     if(isPlayer2 == false){
       if(isOnColor && Input.GetKey(KeyCode.E) && finalSwatch.player1GValue <= 254){
         finalSwatch.player1GValue += 1;
+        GreenFlare.SetActive(true);
+      }
+      else{
+        GreenFlare.SetActive(false);
       }
     }
     if(isPlayer2 == true){
       if(isOnColor && Input.GetKey(KeyCode.Keypad0) && finalSwatch.player1GValue <= 254){
         finalSwatch.player1GValue += 1;
+        GreenFlare.SetActive(true);
+      }
+      else{
+        GreenFlare.SetActive(false);
       }
     }
   }
@@ -31,5 +40,6 @@ public class GreenButton : MonoBehaviour{
   }
   void OnTriggerExit2D (Collider2D col){
      isOnColor = false;
+     GreenFlare.SetActive(false);
   }
 }

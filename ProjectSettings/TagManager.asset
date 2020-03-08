@@ -6,6 +6,8 @@ TagManager:
   tags:
   - P1Nozzle
   - P2Nozzle
+  - Creature
+  - HealthBar
   layers:
   - Default
   - TransparentFX
