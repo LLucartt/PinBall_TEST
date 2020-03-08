@@ -8,6 +8,7 @@ public class BulletScript : MonoBehaviour{
     Rigidbody2D rb;
     public GameObject Nozzle;
     public bool isPlayer2;
+    public float bulletBounceCount;
 
     void Start(){
       rb = GetComponent<Rigidbody2D>();
@@ -26,11 +27,15 @@ public class BulletScript : MonoBehaviour{
 
 
     void Update(){
+      if(bulletBounceCount >= 4){
+        Destroy(gameObject);
+      }
     }
 
     void OnCollisionEnter2D(Collision2D col) {
       Vector2 inNormal = col.contacts[0].normal;
       Vector2 newVelocity = Vector2.Reflect(rb.velocity, inNormal);
+      bulletBounceCount += 1;
     }
 
 }
