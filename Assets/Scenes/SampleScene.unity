@@ -2641,13 +2641,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414956883}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.08715578, w: 0.9961947}
   m_LocalPosition: {x: 0.03000021, y: 0.02, z: 9.021484}
   m_LocalScale: {x: 0.022208951, y: 0.022208951, z: 0.022208955}
   m_Children: []
   m_Father: {fileID: 2122562022}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10}
 --- !u!61 &1414956885
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2687,7 +2687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrianglePoint: {fileID: 1414956884}
-  currentRotate: 0
+  timetoLerp: 2
+  black: 1
 --- !u!212 &1414956887
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3251,7 +3252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrianglePoint: {fileID: 1662299297}
-  currentRotate: 0
+  timetoLerp: 2
+  black: 0
 --- !u!212 &1662299296
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3308,13 +3310,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662299294}
-  m_LocalRotation: {x: -0, y: -0, z: -0.53456265, w: 0.84512883}
+  m_LocalRotation: {x: 0, y: 0, z: -0.08715578, w: 0.9961947}
   m_LocalPosition: {x: -0.069999695, y: 0.02909889, z: 9.021484}
   m_LocalScale: {x: 0.022208951, y: 0.022208951, z: 0.022208955}
   m_Children: []
   m_Father: {fileID: 219779224}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -64.629005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10}
 --- !u!61 &1662299298
 BoxCollider2D:
   m_ObjectHideFlags: 0
