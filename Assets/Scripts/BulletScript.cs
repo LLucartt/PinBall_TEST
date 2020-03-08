@@ -20,12 +20,17 @@ public class BulletScript : MonoBehaviour{
       float zRotation = Nozzle.transform.eulerAngles.z;
       this.gameObject.transform.Rotate(this.gameObject.transform.eulerAngles.x, this.gameObject.transform.eulerAngles.x, zRotation);
 
-
+      rb.velocity = transform.up * speed;
 
     }
 
 
     void Update(){
-      rb.velocity = transform.up * speed;
     }
+
+    void OnCollisionEnter2D(Collision2D col) {
+      Vector2 inNormal = col.contacts[0].normal;
+      Vector2 newVelocity = Vector2.Reflect(rb.velocity, inNormal);
+    }
+
 }
