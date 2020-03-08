@@ -1882,9 +1882,9 @@ MonoBehaviour:
   shooter: {fileID: 1414956883}
   player: {fileID: 2063936186}
   playerGonnaShoot: 0
-  bulletPrefab: {fileID: 8180117074826000665, guid: cb94e98b83748bb48a3bea75de6f0b64,
+  bulletPrefab: {fileID: 8180117074826000665, guid: f3722fe32974dd140b2941191668ed1b,
     type: 3}
-  Nozzle: {fileID: 2089459484}
+  Nozzle: {fileID: 1340076049}
   NozzleLocation: {x: 0, y: 0}
 --- !u!1 &1032796229
 GameObject:
@@ -2598,7 +2598,7 @@ GameObject:
   - component: {fileID: 1340076050}
   m_Layer: 0
   m_Name: Nozzle
-  m_TagString: Untagged
+  m_TagString: P2Nozzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

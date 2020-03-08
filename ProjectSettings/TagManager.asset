@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - P1Nozzle
+  - P2Nozzle
   layers:
   - Default
   - TransparentFX
