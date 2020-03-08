@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class rotateScript : MonoBehaviour{
+public class rotateScript : MonoBehaviour {
 
-   public Transform TrianglePoint;
+
    private float second;
    public float currentRotate;
    public bool isPlayer2;
@@ -18,27 +18,28 @@ public class rotateScript : MonoBehaviour{
      direction = 0.5f;
    }
 
-   void FixedUpdate(){
+    void FixedUpdate(){
+        currentRotate= transform.eulerAngles.z;
 
-     second = second + direction;
+        second = second + direction;
 
-     currentRotate= transform.eulerAngles.z;
-     //Debug.Log(currentRotate);
 
-     if(isPlayer2){
-       if(currentRotate <= 15 && isMovingUp){
-         direction = -0.5f;
-         isMovingUp = false;
-       }
-       if(currentRotate >= 165 && isMovingUp == false){
-         direction = 0.5f;
-         isMovingUp = true;
-       }
+       if(isPlayer2){
+         if(currentRotate <= 15 && isMovingUp){
+           direction = -0.5f;
+           isMovingUp = false;
+         }
+         if(currentRotate >= 165 && isMovingUp == false){
+           direction = 0.5f;
+           isMovingUp = true;
+         }
 
-       float triangleAngle = -360 * (second/60);
-       TrianglePoint.localRotation = Quaternion.Euler(0,0, triangleAngle + 50);
-     }
+        if(currentRotate <= 300f){
+          Debug.Log("switch now");
+          second = second * -1;
+        }
 
+      }
 
 
      if(isPlayer2 == false){
@@ -52,12 +53,8 @@ public class rotateScript : MonoBehaviour{
          isMovingUp = true;
        }
 
-       float triangleAngle = -360 * (second/60);
-       TrianglePoint.localRotation = Quaternion.Euler(0,0, triangleAngle - 50);
-
      }
 
 
    }
-
 }
