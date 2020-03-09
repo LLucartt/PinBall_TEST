@@ -1,18 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
-public class SageGay : MonoBehaviour
+public class Timer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float timeLeft = 300.0f;
 
-    // Update is called once per frame
+    public Text text;
+
+
+
     void Update()
     {
-        
+        timeLeft -= Time.deltaTime;
+        text.text = "Time Left:" + Mathf.Round(timeLeft);
+        if(timeLeft < 0)
+        {
+            // something for end of game here
     }
 }
