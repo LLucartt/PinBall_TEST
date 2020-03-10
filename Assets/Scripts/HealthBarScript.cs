@@ -68,12 +68,12 @@ public class HealthBarScript : MonoBehaviour{
     }
 
     IEnumerator spawnCreature(){
-      if(health == 0){
+      if(health >= 0){
         health = 2;
         Exterminate.SetActive(true);
         yield return new WaitForSeconds(1f);
       }
-      if(health == 4){
+      if(health >= 4){
         health = 2;
         Immortalise.SetActive(true);
         yield return new WaitForSeconds(1f);
@@ -83,6 +83,7 @@ public class HealthBarScript : MonoBehaviour{
       Exterminate.SetActive(false);
       Immortalise.SetActive(false);
       int prefeb_num = Random.Range(0,3);
+      Debug.Log(prefeb_num);
       Instantiate(prefeb[prefeb_num], spawner);
 
     }
