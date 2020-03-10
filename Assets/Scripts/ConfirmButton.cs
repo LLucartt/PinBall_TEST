@@ -76,7 +76,7 @@ public class ConfirmButton : MonoBehaviour{
           if(finalScore >= 95){
             Debug.Log("Super");
           }
-          if(finalScore >= 80){
+          if(finalScore >= 80 && (finalSwatch.player1RValue >= 1 || finalSwatch.player1GValue >= 1 || finalSwatch.player1BValue >= 1)){
             //Debug.Log("Shoot");
             shooter.SetActive(true);
             player.SetActive(false);
@@ -115,7 +115,7 @@ public class ConfirmButton : MonoBehaviour{
           if(finalScore >= 95){
             Debug.Log("Super");
           }
-          if(finalScore >= 80){
+          if(finalScore >= 80 && (finalSwatch.player1RValue >= 1 || finalSwatch.player1GValue >= 1 || finalSwatch.player1BValue >= 1)){
             //Debug.Log("Shoot");
             shooter.SetActive(true);
             player.SetActive(false);
