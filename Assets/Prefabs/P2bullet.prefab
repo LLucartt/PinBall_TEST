@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8180117074826000666}
   m_Layer: 10
   m_Name: P2bullet
-  m_TagString: Untagged
+  m_TagString: p2Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,3 +136,6 @@ MonoBehaviour:
   Nozzle: {fileID: 0}
   isPlayer2: 1
   bulletBounceCount: 0
+  HealthBarObject: {fileID: 0}
+  healthBar: {fileID: 0}
+  bulletDam: 0

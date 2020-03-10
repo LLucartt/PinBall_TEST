@@ -11,6 +11,9 @@ public class BulletScript : MonoBehaviour{
     public float bulletBounceCount;
     public GameObject HealthBarObject;
     public HealthBarScript healthBar;
+    public float bulletDam;
+    private ConfirmButton ConfirmButton;
+    private GameObject confirmButton;
 
     void Start(){
       HealthBarObject = GameObject.FindWithTag("HealthBar");
@@ -27,6 +30,17 @@ public class BulletScript : MonoBehaviour{
 
       rb.velocity = transform.up * speed;
 
+      if(isPlayer2 == false){
+        confirmButton = GameObject.FindWithTag("P1Confirm");
+        ConfirmButton = confirmButton.GetComponent<ConfirmButton>();
+      }
+      if(isPlayer2){
+        confirmButton = GameObject.FindWithTag("P2Confirm");
+        ConfirmButton = confirmButton.GetComponent<ConfirmButton>();
+      }
+
+
+
     }
 
 
@@ -34,15 +48,21 @@ public class BulletScript : MonoBehaviour{
       if(bulletBounceCount >= 6){
         Destroy(gameObject);
       }
+      if(ConfirmButton.isSuper == false){
+        bulletDam = 1;
+      }
+      if(ConfirmButton.isSuper == true){
+        bulletDam = 2;
+      }
     }
 
     void OnCollisionEnter2D(Collision2D col) {
       if(col.gameObject.tag == "Creature"){
         if(isPlayer2 == false){
-          healthBar.health += -1;
+          healthBar.health += -bulletDam;
         }
         if(isPlayer2){
-          healthBar.health += 1;
+          healthBar.health += bulletDam;
         }
         Destroy(gameObject);
       }

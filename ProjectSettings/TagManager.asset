@@ -8,6 +8,10 @@ TagManager:
   - P2Nozzle
   - Creature
   - HealthBar
+  - P1Bullet
+  - p2Bullet
+  - P1Confirm
+  - P2Confirm
   layers:
   - Default
   - TransparentFX

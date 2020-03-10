@@ -27,6 +27,9 @@ public class ConfirmButton : MonoBehaviour{
   public GameObject bulletPrefab;
   public GameObject Nozzle;
   public Vector2 NozzleLocation;
+  private GameObject Bullet;
+  private BulletScript bulletScript;
+  public bool isSuper;
 
     void Start(){
 
@@ -35,6 +38,16 @@ public class ConfirmButton : MonoBehaviour{
 
     void Update(){
       NozzleLocation = Nozzle.transform.position;
+      /*
+      if(isPlayer2 == false){
+        Bullet = GameObject.FindWithTag("P1Bullet");
+        bulletScript = Bullet.GetComponent<BulletScript>();
+      }
+      if(isPlayer2){
+        Bullet = GameObject.FindWithTag("p2Bullet");
+        bulletScript = Bullet.GetComponent<BulletScript>();
+      }
+*/
       /*
       minRedPass = originalSwatch.rValue;
       maxRedPass = originalSwatch.rValue;
@@ -74,12 +87,18 @@ public class ConfirmButton : MonoBehaviour{
           AnalysingAnswers = true;
           percentageBox.text =  finalScore.ToString() + "%";
           if(finalScore >= 95){
-            Debug.Log("Super");
+            //bulletScript.bulletDam = 2;
+            //Debug.Log("Super");
+            isSuper = true;
+          }
+          else{
+            isSuper = false;
           }
           if(finalScore >= 80 && (finalSwatch.player1RValue >= 1 || finalSwatch.player1GValue >= 1 || finalSwatch.player1BValue >= 1)){
             //Debug.Log("Shoot");
             shooter.SetActive(true);
             player.SetActive(false);
+          //  bulletScript.bulletDam = 1;
             playerGonnaShoot = true;
           }
 
@@ -113,12 +132,18 @@ public class ConfirmButton : MonoBehaviour{
           AnalysingAnswers = true;
           percentageBox.text =  finalScore.ToString() + "%";
           if(finalScore >= 95){
-            Debug.Log("Super");
+          //  bulletScript.bulletDam = 2;
+            //Debug.Log("Super");
+            isSuper = true;
+          }
+          else{
+            isSuper = false;
           }
           if(finalScore >= 80 && (finalSwatch.player1RValue >= 1 || finalSwatch.player1GValue >= 1 || finalSwatch.player1BValue >= 1)){
             //Debug.Log("Shoot");
             shooter.SetActive(true);
             player.SetActive(false);
+            //bulletScript.bulletDam = 1;
             playerGonnaShoot = true;
           }
 
