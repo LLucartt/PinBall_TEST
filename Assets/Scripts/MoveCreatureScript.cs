@@ -11,14 +11,40 @@ public class MoveCreatureScript : MonoBehaviour{
     public float movement;
     private float starttimer;
     private float timer;
+    public GameObject HealthBarObject;
+    public HealthBarScript healthBar;
+    public Sprite dead;
+    public Sprite quarterDead;
+    public Sprite halfhalf;
+    public Sprite QuarterAlive;
+    public Sprite alive;
 
     void Start(){
       movingUp = true;
       movespeed = 0.05f;
+      HealthBarObject = GameObject.FindWithTag("HealthBar");
+      healthBar = HealthBarObject.GetComponent<HealthBarScript>();
     }
 
 
     void Update(){
+
+      if(healthBar.health <= 0){
+        GetComponent<SpriteRenderer>().sprite = dead;
+      }
+      if(healthBar.health == 1){
+        GetComponent<SpriteRenderer>().sprite = QuarterAlive;
+      }
+      if(healthBar.health == 2){
+        GetComponent<SpriteRenderer>().sprite = halfhalf;
+      }
+      if(healthBar.health == 3){
+        GetComponent<SpriteRenderer>().sprite = quarterDead;
+      }
+      if(healthBar.health >= 4){
+        GetComponent<SpriteRenderer>().sprite = alive;
+      }
+
 
       if(movement == 1){
         starttimer = 1f;

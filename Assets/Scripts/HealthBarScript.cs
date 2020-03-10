@@ -34,9 +34,12 @@ public class HealthBarScript : MonoBehaviour{
         sr = left01.GetComponent<SpriteRenderer>(); sr.color = purple;
         sr = right01.GetComponent<SpriteRenderer>(); sr.color = purple;
         sr = right02.GetComponent<SpriteRenderer>(); sr.color = purple;
-        scoreScript.player1Score += 1;
-        Destroy(currentCreature);
-        StartCoroutine(spawnCreature());
+          if(spawnEvent == false){
+            scoreScript.player1Score += 1;
+            //Destroy(currentCreature);
+            StartCoroutine(spawnCreature());
+            spawnEvent = true;
+          }
         }
       if(health == 1){
         sr = left02.GetComponent<SpriteRenderer>(); sr.color = purple;
@@ -61,13 +64,19 @@ public class HealthBarScript : MonoBehaviour{
         sr = left01.GetComponent<SpriteRenderer>(); sr.color = green;
         sr = right01.GetComponent<SpriteRenderer>(); sr.color = green;
         sr = right02.GetComponent<SpriteRenderer>(); sr.color = green;
-        scoreScript.player2Score += 1;
-        Destroy(currentCreature);
-        StartCoroutine(spawnCreature());
+          if(spawnEvent == false){
+            scoreScript.player2Score += 1;
+            //Destroy(currentCreature);
+            StartCoroutine(spawnCreature());
+            spawnEvent = true;
+          }
+
         }
     }
 
     IEnumerator spawnCreature(){
+        yield return new WaitForSeconds(1f);
+        Destroy(currentCreature);
       if(health <= 0){
         health = 2;
         Exterminate.SetActive(true);
@@ -85,6 +94,7 @@ public class HealthBarScript : MonoBehaviour{
       int prefeb_num = Random.Range(0,3);
       Debug.Log(prefeb_num);
       Instantiate(prefeb[prefeb_num], spawner);
+      spawnEvent = false;
 
     }
 }

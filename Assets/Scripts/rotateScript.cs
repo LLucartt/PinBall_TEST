@@ -15,7 +15,7 @@ public class rotateScript : MonoBehaviour {
    void Start(){
      gameObject.SetActive(false);
      isMovingUp = true;
-     direction = 0.5f;
+     direction = 0.35f;
    }
 
     void FixedUpdate(){
@@ -25,11 +25,11 @@ public class rotateScript : MonoBehaviour {
 
        if(isPlayer2){
          if(currentRotate <= 15 && isMovingUp){
-           direction = -0.5f;
+           direction = -0.35f;
            isMovingUp = false;
          }
          if(currentRotate >= 165 && isMovingUp == false){
-           direction = 0.5f;
+           direction = 0.35f;
            isMovingUp = true;
          }
          float triangleAngle = -360 * (second/60);
@@ -39,11 +39,11 @@ public class rotateScript : MonoBehaviour {
 
      if(isPlayer2 == false){
        if(currentRotate <= 199 && isMovingUp){
-         direction = -0.5f;
+         direction = -0.35f;
          isMovingUp = false;
        }
        if(currentRotate >= 340 && isMovingUp == false){
-         direction = 0.5f;
+         direction = 0.35f;
          isMovingUp = true;
        }
        float triangleAngle = -360 * (second/60);
