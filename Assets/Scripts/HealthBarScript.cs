@@ -68,7 +68,7 @@ public class HealthBarScript : MonoBehaviour{
     }
 
     IEnumerator spawnCreature(){
-      if(health >= 0){
+      if(health <= 0){
         health = 2;
         Exterminate.SetActive(true);
         yield return new WaitForSeconds(1f);
