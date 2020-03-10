@@ -95,6 +95,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: 3
+  HealthBarObject: {fileID: 0}
+  healthBar: {fileID: 0}
+  dead: {fileID: 21300000, guid: 55f684f20c275d145885aa1cf517e7a1, type: 3}
+  quarterDead: {fileID: 21300000, guid: 6ff454ed7f0f3f24c9f535cbe57bba36, type: 3}
+  halfhalf: {fileID: 21300000, guid: f686f93b49c84114ebff50e3d2f8e256, type: 3}
+  QuarterAlive: {fileID: 21300000, guid: 17acccaaccdff534eb7ed334d6924f89, type: 3}
+  alive: {fileID: 21300000, guid: 48ee4a7a98f83e84dbda780f1d36e8ed, type: 3}
 --- !u!60 &1411438568762369055
 PolygonCollider2D:
   m_ObjectHideFlags: 0
