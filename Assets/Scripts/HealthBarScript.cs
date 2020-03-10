@@ -21,7 +21,6 @@ public class HealthBarScript : MonoBehaviour{
     public Transform spawner;
 
     void Start(){
-      currentCreature = GameObject.FindWithTag("Creature");
       //green = new Color(138f,207f,132f,132f);
       //purple = new Color(193f,141f,221f,132f);
       //sr = GetComponent<SpriteRenderer>();
@@ -29,6 +28,7 @@ public class HealthBarScript : MonoBehaviour{
 
 
     void Update(){
+      currentCreature = GameObject.FindWithTag("Creature");
       if(health <= 0){
         sr = left02.GetComponent<SpriteRenderer>(); sr.color = purple;
         sr = left01.GetComponent<SpriteRenderer>(); sr.color = purple;
@@ -69,17 +69,19 @@ public class HealthBarScript : MonoBehaviour{
 
     IEnumerator spawnCreature(){
       if(health == 0){
+        health = 2;
         Exterminate.SetActive(true);
         yield return new WaitForSeconds(1f);
-        Exterminate.SetActive(false);
       }
       if(health == 4){
+        health = 2;
         Immortalise.SetActive(true);
         yield return new WaitForSeconds(1f);
-        Immortalise.SetActive(true);
       }
-      health = 2;
+
       yield return new WaitForSeconds(1f);
+      Exterminate.SetActive(false);
+      Immortalise.SetActive(false);
       int prefeb_num = Random.Range(0,3);
       Instantiate(prefeb[prefeb_num], spawner);
 
