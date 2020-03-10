@@ -19,6 +19,7 @@ public class HealthBarScript : MonoBehaviour{
     public GameObject Exterminate;
     public GameObject Immortalise;
     public Transform spawner;
+    private bool spawnEvent;
 
     void Start(){
       //green = new Color(138f,207f,132f,132f);
