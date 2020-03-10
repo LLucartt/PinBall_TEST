@@ -816,7 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd2d9c4ff19d774ca7d8271f84288ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 300
+  maxTime: 180
   timesUpText: {fileID: 799634813}
 --- !u!114 &111082046
 MonoBehaviour:
@@ -11055,7 +11055,6 @@ MonoBehaviour:
   prefeb:
   - {fileID: 5414958047643804963, guid: 640fb223f1b51b44abfb320469ff0602, type: 3}
   - {fileID: 7992450295715808665, guid: bd218b65894df3d4895feeba9d49ff90, type: 3}
-  - {fileID: 2073735419046295030, guid: 014c23f05a13fe44d9c0574800049ede, type: 3}
   - {fileID: 2073735419046295030, guid: 0d12fae150dc8844793a4f722c4e1f69, type: 3}
   Exterminate: {fileID: 994791132}
   Immortalise: {fileID: 1725869050}
